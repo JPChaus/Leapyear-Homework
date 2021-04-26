@@ -4,9 +4,14 @@
 #Program that asks for a year from the user and then determines if it is a leap year or not.
 #Repatedly asks the user for a new number if the number given is not a positive integer
 
-n = input("Please enter a year. Positive integer values only: ")
-
-year = int(n)
+while True:
+    try:
+        year = int(input("Please enter a year. Positive integer values only: "))
+        if(year < 0):
+            raise ValueError
+        break
+    except ValueError:
+        print("Invalid input!")
 
 if (year%400 == 0):
     print("% s is a Leap Year." % year)
